@@ -20,3 +20,16 @@
 * > webpack -w
 In another tab run ./node_modules/.bin/live-server --port=3004
 * > ./node_modules/.bin/live-server --port=3004
+
+I can see anything.
+Because Vue.js is running as runtime-only by default.
+Need to change it to pre-compile mode
+* open webpack.config.js
+* add
+resolve: {
+  alias: {
+    'vue$': 'vue/dist/vue.common.js'
+  }
+}
+
+Now It works! Yeah! :)
