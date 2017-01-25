@@ -1,6 +1,6 @@
 # front
 
-## Webpack & Vue.js
+## To use - Webpack & Vue.js
 
 * move to dev folder
 * npm init -y
