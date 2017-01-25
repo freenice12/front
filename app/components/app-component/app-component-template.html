@@ -1,2 +1,8 @@
-<h1>Hello!</h1>
-<h1>./components/app-component/app-component/app-component-template.html</h1>
+<div>
+  <div id="search-form">
+    <form v-on:submit.prevent="newSubscription">
+      <input class="swish-input" v-model="newSearchTerm" placeholder="Vue.js" />
+      <button class="bright-blue-hover btn-white">Search</button>
+    </form>
+  </div>
+</div>
