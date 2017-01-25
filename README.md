@@ -14,4 +14,9 @@
 * create index.html
 * create main.js
 * create app-component.js
-* Run> webpack -w
+* > webpack -w
+* I have got error.... Webpack has not found.
+* npm install -g webpack
+* > webpack -w
+In another tab run ./node_modules/.bin/live-server --port=3004
+* > ./node_modules/.bin/live-server --port=3004
