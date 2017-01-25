@@ -8,14 +8,14 @@ const AppComponent = Vue.extend({
   components: {
     'subscription-component': SubscriptionComponent
   },
-  created() {
-    this.pusher = new Pusher('myPusherKey');
-  },
   data() {
     return {
       newSearchTerm: '',
       channels: []
     }
+  },
+  created() {
+    this.pusher = new Pusher('9fd1b33fcb36d968145f');
   },
   methods: {
     newSubscription() {
@@ -35,6 +35,9 @@ const AppComponent = Vue.extend({
     },
     clearSearch(channel) {
       this.channels = this.channels.filter((ch) => {
+        if (ch.term === channel.term) {
+          ch.active = false;
+        }
         return ch.term !== channel.term;
       });
     }

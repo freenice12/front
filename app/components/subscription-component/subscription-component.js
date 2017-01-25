@@ -4,13 +4,14 @@ import template from './subscription-component-template.html';
 const SubscriptionComponent = Vue.extend({
   template,
   props: [
-    'channel',
-    'pusher'
+    'pusher',
+    'channel'
   ],
-  data() {
-    return {
-      tweets: []
-    }
+  created() {
+    this.subscribeToChannel();
+  },
+  beforeDestroy() {
+    this.unsubscribe();
   },
   watch: {
     'channel.active': function() {
@@ -21,34 +22,34 @@ const SubscriptionComponent = Vue.extend({
       }
     }
   },
+  data() {
+    return {
+      tweets: []
+    }
+  },
   methods: {
-    created() {
-      this.subscribeToChannel()
-    },
-    beforeDestroy() {
-      this.unsubscribe();
+    unsubscribe() {
+      this.pusherChannel.unsubscribe(btoa(this.channel.term));
+      this.pusherChannel && this.pusherChannel.unbind();
+      this.subscribed = false;
     },
     subscribeToChannel() {
       this.pusherChannel = this.pusher.subscribe(btoa(this.channel.term));
       this.pusherChannel.bind('new_tweet', (data) => {
-        this.newTweet(data); // Don't worry, we haven't defined this func yet!
+        this.newTweet(data);
       });
       this.subscribed = true;
     },
     newTweet(data) {
       this.tweets.push(data);
-      this.$nextTick(() => {
+      this.$nextTick(function() {
         const listItem = document.querySelector(`.channel-${this.channel.term}`);
-        listItem.scrollTop = listItem.scrollHeight;
+        if (listItem) {
+          listItem.scrollTop = listItem.scrollHeight;
+        }
       });
-    },
-    unsubscribe() {
-      this.pusherChannel.unsubscribe(btoa(this.channel.term));
-      this.pusherChannel && this.pusherChannel.unbind();
-      this.subscribed = false;
     }
   }
-
 });
 
 export default SubscriptionComponent;

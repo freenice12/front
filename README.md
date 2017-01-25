@@ -72,3 +72,5 @@ app/components/subscription-component/subscription-component-template.html
 app/components/subscription-component/subscription-component.js
 
 * > npm install --save pusher-js
+* restart webpack
+
