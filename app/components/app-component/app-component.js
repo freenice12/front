@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import Pusher from 'pusher-js';
 import template from './app-component-template.html';
 import SubscriptionComponent from '../subscription-component/subscription-component';
 
@@ -6,6 +7,9 @@ const AppComponent = Vue.extend({
   template,
   components: {
     'subscription-component': SubscriptionComponent
+  },
+  created() {
+    this.pusher = new Pusher(YOUR_PUSHER_KEY_HERE);
   },
   data() {
     return {
