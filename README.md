@@ -1,5 +1,7 @@
 # front
 
+# https://blog.pusher.com/exploring-real-time-apps-with-vuejs-es2016-and-webpack/
+
 ## To use - Webpack & Vue.js
 
 * move to dev folder
@@ -33,3 +35,40 @@ resolve: {
 }
 
 Now It works! Yeah! :)
+
+### Building the App Component
+* create Create app/components/app-component/app-component-template.html
+* npm install --save-dev raw-loader
+* update to configure the new loader in webpack.config.js
+module.exports = {
+ ...
+  module: {
+    loaders: [{
+      test: /\.js$/,
+     ...
+      query: {
+        presets: ['es2015']
+      }
+    }, {
+      test: /\.html$/,
+      loader: 'raw'
+    }]
+  },
+  resolve: {
+    alias: {
+      'vue$': 'vue/dist/vue.common.js'
+    }
+  }
+}
+* update app-component.js
+Have to restart webpack. Whenever add a new plugin.
+You can see app-component-template.html contents.
+
+### The subscription component
+
+* Create and modify files below:
+app/components/app-component/app-component.js
+app/components/subscription-component/subscription-component-template.html
+app/components/subscription-component/subscription-component.js
+
+* > npm install --save pusher-js

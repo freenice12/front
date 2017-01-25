@@ -9,7 +9,7 @@ const AppComponent = Vue.extend({
     'subscription-component': SubscriptionComponent
   },
   created() {
-    this.pusher = new Pusher(YOUR_PUSHER_KEY_HERE);
+    this.pusher = new Pusher('myPusherKey');
   },
   data() {
     return {
@@ -26,18 +26,18 @@ const AppComponent = Vue.extend({
       this.newSearchTerm = '';
     },
     toggleSearch(channel) {
-    for (let ch of this.channels) {
-      if (ch.term === channel.term) {
-        ch.active = !ch.active;
-        break;
+      for (let ch of this.channels) {
+        if (ch.term === channel.term) {
+          ch.active = !ch.active;
+          break;
+        }
       }
+    },
+    clearSearch(channel) {
+      this.channels = this.channels.filter((ch) => {
+        return ch.term !== channel.term;
+      });
     }
-  },
-  clearSearch(channel) {
-    this.channels = this.channels.filter((ch) => {
-      return ch.term !== channel.term;
-    });
-  }
   }
 });
 
