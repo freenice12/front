@@ -12,3 +12,6 @@
 
 * npm install --save vue
 * create index.html
+* create main.js
+* create app-component.js
+* Run> webpack -w
