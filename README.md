@@ -32,11 +32,11 @@ Need to change it to pre-compile mode
 * open webpack.config.js
 * add
 
-|resolve: {
-|  alias: {
-|    'vue$': 'vue/dist/vue.common.js'
-|  }
-|}
+resolve: {
+  alias: {
+    'vue$': 'vue/dist/vue.common.js'
+  }
+}
 
 Now It works! Yeah! :)
 
@@ -45,26 +45,26 @@ Now It works! Yeah! :)
 * npm install --save-dev raw-loader
 * update to configure the new loader in webpack.config.js
 
-|module.exports = {
-| ...
-|  module: {
-|    loaders: [{
-|      test: /\.js$/,
-|     ...
-|      query: {
-|        presets: ['es2015']
-|      }
-|    }, {
-|      test: /\.html$/,
-|      loader: 'raw'
-|    }]
-|  },
-|  resolve: {
-|    alias: {
-|      'vue$': 'vue/dist/vue.common.js'
-|    }
-|  }
-|}
+module.exports = {
+ ...
+  module: {
+    loaders: [{
+      test: /\.js$/,
+     ...
+      query: {
+        presets: ['es2015']
+      }
+    }, {
+      test: /\.html$/,
+      loader: 'raw'
+    }]
+  },
+  resolve: {
+    alias: {
+      'vue$': 'vue/dist/vue.common.js'
+    }
+  }
+}
 
 * update app-component.js
 
