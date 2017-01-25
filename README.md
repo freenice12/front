@@ -2,7 +2,7 @@
 
 # https://blog.pusher.com/exploring-real-time-apps-with-vuejs-es2016-and-webpack/
 
-## To use - Webpack & Vue.js
+## To use - Webpack & Vue.js & Pusher.js
 
 * move to dev folder
 * npm init -y
