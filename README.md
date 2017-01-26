@@ -1,6 +1,4 @@
-# front
-
-# https://blog.pusher.com/exploring-real-time-apps-with-vuejs-es2016-and-webpack/
+# front [See Blog](https://blog.pusher.com/exploring-real-time-apps-with-vuejs-es2016-and-webpack/)
 
 ## To use - Webpack & Vue.js & Pusher.js
 
