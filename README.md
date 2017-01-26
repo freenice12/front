@@ -32,11 +32,13 @@ Need to change it to pre-compile mode
 * open webpack.config.js
 * add
 
+```
 resolve: {
   alias: {
     'vue$': 'vue/dist/vue.common.js'
   }
 }
+```
 
 Now It works! Yeah! :)
 
@@ -45,6 +47,7 @@ Now It works! Yeah! :)
 * npm install --save-dev raw-loader
 * update to configure the new loader in webpack.config.js
 
+```
 module.exports = {
  ...
   module: {
@@ -65,6 +68,7 @@ module.exports = {
     }
   }
 }
+```
 
 * update app-component.js
 
@@ -81,4 +85,3 @@ app/components/subscription-component/subscription-component.js
 
 * > npm install --save pusher-js
 * restart webpack
-
